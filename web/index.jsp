@@ -4,6 +4,15 @@
   <head>
     <title>$Title$</title>
     <link href="css/estilos.css" rel="stylesheet" >
+
+   <%-- <script>
+
+      alert("¿Eres mayor de 18 años?")  Para añadir el cuadro de la evolucion de la cuota mirar JavaScriptPildoras en la clase JQueryReemplazareliminarcontendo
+
+    </script>--%>
+
+
+
   </head>
   <body>
     <div id="container">
@@ -86,115 +95,143 @@
   </table>
 
 
-
+  <div id="tablacentral">
   <table>
     <thead>
     <tr>
       <th></th>
-      <th></th>
-      <th>INTERWETTEN</th>
-      <th>GOLDENPARK</th>
-      <th>SPORTIUM</th>
-      <th>SUERTIA</th>
-      <th>RETABET</th>
-      <th>CASINOBARCELONA</th>
-      <th>CASINOMADRID</th>
-      <th>BETFAIR</th>
-      <th>MBET</th>
-      <th>JUEGGING</th>
-      <th>KIROLBET</th>
-      <th>MARCAAPUESTAS</th>
-      <th>SISSAL</th>
-
-      <%--<th>BWIN</th>
-      <th>BET365</th>
-      <th>MBET</th>
-      <th>888SPORT</th>
-      <th>LUCKIA</th>--%>
-
     </tr>
     </thead>
-
     <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          X
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+      </tr>
+      <tr>
+        <td>
 
-<c:forEach var="CuotasTemp" items="${ListaCuotas}">
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-    <tr>
-      <td>1</td>
-      <td>${CuotasTemp.nombreEquipo1}</td>
-      <td>2.9</td>
-      <td>3.1</td>
-      <td>${CuotasTemp.cuota1}</td>
-      <td>2.95</td>
-      <td>3.05</td>
-      <td>2.890</td>
-      <td>2.91</td>
-      <td>3</td>
-      <td>3.1</td>
-      <td>3</td>
-      <td>3.05</td>
-      <td>3.1</td>
-      <td>3.1</td>
-    </tr>
+<c:forEach var="CuotasTempSportium" items="${ListaCuotasSportium}">
 
-    <tr>
-      <td>X</td>
-      <td>Empate</td>
-      <td>2.9</td>
-      <td>3.1</td>
-      <td>${CuotasTemp.cuotaX}</td>
-      <td>2.95</td>
-      <td>3.05</td>
-      <td>2.890</td>
-      <td>2.91</td>
-      <td>3</td>
-      <td>3.1</td>
-      <td>3</td>
-      <td>3.05</td>
-      <td>3.1</td>
-      <td>3.1</td>
-    </tr>
-
-    <tr>
-      <td>2</td>
-      <td>${CuotasTemp.nombreEquipo2}</td>
-      <td>2.9</td>
-      <td>3.1</td>
-      <td>${CuotasTemp.cuota2}</td>
-      <td>2.95</td>
-      <td>3.05</td>
-      <td>2.890</td>
-      <td>2.91</td>
-      <td>3</td>
-      <td>3.1</td>
-      <td>3</td>
-      <td>3.05</td>
-      <td>3.1</td>
-      <td>3.1</td>
-    </tr>
-
-    <tr>
-      <td></td>
-      <td>% Pago</td>
-      <td>98</td>
-      <td>97</td>
-      <td>${CuotasTemp.porcentajePago}</td>
-      <td>96</td>
-      <td>95</td>
-      <td>99</td>
-      <td>97</td>
-      <td>99</td>
-      <td>98</td>
-      <td>90</td>
-      <td>90</td>
-      <td>92</td>
-    </tr>
+    <table class="tablaEquipos">
+      <thead>
+      <tr>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+            ${CuotasTempSportium.nombreEquipo1}
+        </td>
+      </tr>
+      <tr>
+        <td>
+           X
+        </td>
+      </tr>
+      <tr>
+        <td>
+            ${CuotasTempSportium.nombreEquipo2}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Pago(%)
+        </td>
+      </tr>
+      </tbody>
+    </table>
 
 </c:forEach>
 
-    </tbody>
+<c:forEach var="CuotasTempSportium" items="${ListaCuotasSportium}">
 
-  </table>
+      <table class="tablaCuotas">
+        <thead>
+        <tr>
+          <th>Sportium</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td>
+              ${CuotasTempSportium.cuota1}
+          </td>
+        </tr>
+        <tr>
+          <td>
+              ${CuotasTempSportium.cuotaX}
+          </td>
+        </tr>
+        <tr>
+          <td>
+              ${CuotasTempSportium.cuota2}
+          </td>
+        </tr>
+        <tr>
+          <td>
+              ${CuotasTempSportium.porcentajePago}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+    </c:forEach>
+
+    <c:forEach var="CuotasTempSportium" items="${ListaCuotasSportium}">
+
+      <table>
+        <thead>
+        <tr>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+              ${CuotasTempSportium.fecha}
+          </td>
+        </tr>
+        <tr>
+          <td>
+              ${CuotasTempSportium.hora}
+          </td>
+        </tr>
+        <tr>
+          <td>
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+    </c:forEach>
+
+
+
+  </div>
   <p id="texto introduccion"> DondeApuesto es una pagina web en la que podrás comparar las cuotas de las principales casas de
     apuestas deportivas de España. Si te registras con nosotros podras configurar las casas de apuestas, ademas podras
     recibir notificaciones cuando una cuota suba o baje a la cuota que te interese. Tambien se mostrará un grafico con el historial de la cuota seleccionada. Tambien
@@ -204,5 +241,15 @@
   <footer>
     <p>&copy; 2020.Adrian Fernandez Elizaga</p>
   </footer>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.14.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.14.4/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
   </body>
 </html>

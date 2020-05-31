@@ -64,10 +64,13 @@ public class EstandarizadorNombresInterwetten {
             case "Hoffenheim":
                 equipomodificado = "Hoffenheim";
                 break;
+            case "Hertha Berlin":
+                equipomodificado = "Hertha Berlin";
+                break;
             case "Hertha BSC":
                 equipomodificado = "Hertha Berlin";
                 break;
-            case "FC Ausburgo":
+            case "FC Augsburgo":
                 equipomodificado = "Ausburgo";
                 break;
             case "VfL Wolfsburgo":
@@ -91,13 +94,13 @@ public class EstandarizadorNombresInterwetten {
             case "Borussia M´gladbach":
                 equipomodificado = "Monchengladbach";
                 break;
-            case "FC Colonia":
+            case "1. FC Colonia":
                 equipomodificado = "Colonia";
                 break;
-            case "FSV Mainz 05":
+            case "1. FSV Mainz 05":
                 equipomodificado = "Mainz";
                 break;
-            case "FC Unión Berlín":
+            case "1. FC Unión Berlín":
                 equipomodificado = "Union Berlin";
                 break;
             case "FC Bayern Múnich":

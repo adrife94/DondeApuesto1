@@ -60,9 +60,9 @@ public class Calculadora extends HttpServlet {
         double importe2 = (100 * porcentaje2) / porcentajefinal;
         double importe3 = (100 * porcentaje3) / porcentajefinal;
 
-        double resultado = cantidad/porcentajefinal * 100;
+        double resultado = (cantidad/porcentajefinal * 100) - cantidad;
 
-        double beneficio = 0;
+        double beneficio = (resultado/cantidad) * 100;
         TablaCalculadoraSurebets tablaCalculadoraSurebets = new TablaCalculadoraSurebets(porcentaje1, porcentaje2, porcentaje3, importe1, importe2, importe3, resultado, beneficio, cantidad, cuota1, cuota2, cuota3);
 
         return tablaCalculadoraSurebets;

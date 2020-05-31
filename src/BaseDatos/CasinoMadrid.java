@@ -82,7 +82,7 @@ public class CasinoMadrid {
 
                 if(listaEquipos.size()!= 0) {
 
-                    for (int i=0 ; i<=(listaEquipos.size() / 2) ; i++ ) {
+                    for (int i=0 ; i<=(listaEquipos.size() / 2) - 1 ; i++ ) {
                         String cuota1 = listaCuotas.get(c).replace(",", ".");
                         String cuotax = listaCuotas.get(d).replace(",", ".");
                         String cuota2 = listaCuotas.get(e).replace(",", ".");

@@ -70,10 +70,16 @@ public class EstandarizadorNombresSuertia {
             case "Ausburgo":
                 equipomodificado = "Ausburgo";
                 break;
+            case "Augsburgo":
+                equipomodificado = "Ausburgo";
+                break;
             case "Wolfsburgo":
                 equipomodificado = "Wolfsburgo";
                 break;
             case "Fortuna Dusseldorf":
+                equipomodificado = "Fortuna";
+                break;
+            case "Fortuna Düsseldorf":
                 equipomodificado = "Fortuna";
                 break;
             case "SC Paderborn 07":
@@ -86,6 +92,9 @@ public class EstandarizadorNombresSuertia {
                 equipomodificado = "Friburgo";
                 break;
             case "Eintracht Frankfurt":
+                equipomodificado = "Frankfurt";
+                break;
+            case "Eintracht Francfort":
                 equipomodificado = "Frankfurt";
                 break;
             case "Borussia Mönchengladbach":

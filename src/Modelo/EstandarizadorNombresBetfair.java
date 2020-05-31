@@ -67,7 +67,7 @@ public class EstandarizadorNombresBetfair {
             case "Hertha Berlín":
                 equipomodificado = "Hertha Berlin";
                 break;
-            case "Ausburgo":
+            case "Augsburgo":
                 equipomodificado = "Ausburgo";
                 break;
             case "Wolfsburgo":

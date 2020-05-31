@@ -67,10 +67,10 @@ public class EstandarizadorNombresJuegging {
             case "Hertha BSC":
                 equipomodificado = "Hertha Berlin";
                 break;
-            case "Ausburg":
+            case "Augsburg":
                 equipomodificado = "Ausburgo";
                 break;
-            case "Wolfsburgo":
+            case "Wolfsburg":
                 equipomodificado = "Wolfsburgo";
                 break;
             case "Fortuna Dusseldorf":
@@ -94,7 +94,7 @@ public class EstandarizadorNombresJuegging {
             case "Colonia":
                 equipomodificado = "Colonia";
                 break;
-            case "Mainz 05":
+            case "FSV Mainz 05":
                 equipomodificado = "Mainz";
                 break;
             case "FC Unión Berlín":

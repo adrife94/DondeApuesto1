@@ -88,6 +88,9 @@ public class EstandarizadorNombresSissal {
             case "Eintracht Frankfurt":
                 equipomodificado = "Frankfurt";
                 break;
+            case "Eintracht Francfort":
+                equipomodificado = "Frankfurt";
+                break;
             case "Borussia Mönchengladbach":
                 equipomodificado = "Monchengladbach";
                 break;
