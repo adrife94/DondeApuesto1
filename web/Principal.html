@@ -1,79 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>DondeApuesto</title>
+
+<html>
+  <head>
+    <title>$Title$</title>
     <link href="css/estilos.css" rel="stylesheet" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-<body>
-<div id="container">
-    <img id="logo" src="imagenes/Dondeapuesto.png" width="300" height="100">
+
+      <%-- <script>
+
+      alert("¿Eres mayor de 18 años?")  Para añadir el cuadro de la evolucion de la cuota mirar JavaScriptPildoras en la clase JQueryReemplazareliminarcontendo
+
+  </script>--%>
+  </head>
+  <body>
+      <div id="contenedorBarraSuperior">
+   
+
+
+      
+
+    <div class="topnav">
+      <a href="#Login">Login</a>
+      <a href="registro.html">Registrar</a>
+      <a class="active" href="#home">Estadisticas</a>
+      <a href="#CasasApuestas">Casas de Apuestas</a>
+      <a href="#Bonos">Bonos</a>
+      <a href="#Rankings">Rankings</a>
+      <a href="#Consejos">Consejos</a>
+      <a href="Calculadora.jsp">Calculadora Surebets</a>
+
+<div id="contenedorLogo">
+        <img id="logo" src="imagenes/Dondeapuesto.png" >
+      </div>
+    </div>
 </div>
 
-
-
-<div class="topnav">
-	<a href="#Login">Login</a>
-    <a href="registro.html">Registrar</a>
-    <a class="active" href="#home">Estadisticas</a>
-    <a href="#CasasApuestas">Casas de Apuestas</a>
-    <a href="#Bonos">Bonos</a>
-    <a href="Rankings.html">Rankings</a>
-    <a href="#Consejos">Consejos</a>
-    <a href="calculadoraSurebets.html">Calculadora Surebets</a>
-
-</div>
-
-
-
-
-<!-- <form action="" method="get">
-    <td><input class="botonesCabecera"  type="submit" value="Estadisticas" id="estadistica" name="envio"/></td>
-</form>
-<form action="" method="get">
-    <td><input class="botonesCabecera" type="submit" value="Login" id="login" name="envio" /></td>
-</form>
-<form action="formulario_registro.jsp" method="get">
-    <td><input class="botonesCabecera" type="submit" value="Registrar" id="registro" name="envio"/></td>
-</form>
-<form action="formulario_registro.jsp" method="get">
-    <td><input class="botonesCabecera" type="submit" value="Casas de apuestas" id="CasasApuestas" name="envio"/></td>
-</form>
-<form action="Bonos.html" method="get">
-    <td><input class="botonesCabecera" type="submit" value="Bonos" id="Bonos" name="envio"/></td>
-</form>
-<form action="formulario_registro.jsp" method="get">
-    <td><input class="botonesCabecera" type="submit" value="Rankings" id="Ranking" name="envio"/></td>
-</form>
-<form action="Consejos.html" method="get">
-    <td><input class="botonesCabecera" type="submit" value="Consejos" id="Consejos" name="envio"/></td>
-</form>-->
-
-
-
-
-<nav>
+  <nav>
     <ul class="nav">
-        <li><a href= "https://es.wikipedia.org/wiki/Canberra"></a>Comparacion</li>
-        <li><a href= "tablaBwin.html">BWIN</a></li>
-        <li><a href= "tablaBet365.html">Bet365</a></li>
-        <li><a href= "tablaSportium.html">Sportium</a></li>
-        <li><a href= "tablaSuertia.html">Suertia</a></li>
-        <li><a href= "tabla888Sport.html">888Sport</a></li>
-        <li><a href= "https://es.wikipedia.org/wiki/S%C3%ADdney">Retabet</a></li>
-        <li><a href= "tablaCodere.html">Codere</a></li>
-        <li><a href= "https://es.wikipedia.org/wiki/Melbourne">CasinoBarcelona</a></li>
-        <li><a href= "https://es.wikipedia.org/wiki/S%C3%ADdney">CasinoMadrid</a></li>
-        <li><a href= "https://es.wikipedia.org/wiki/Melbourne">Luckia</a></li>
-        <li><a href= "https://es.wikipedia.org/wiki/S%C3%ADdney">Interwetten</a></li>
-        <li><a href= "https://es.wikipedia.org/wiki/Melbourne">GoldenPark</a></li>
+      <li><a href= "https://es.wikipedia.org/wiki/Canberra"></a>Comparacion</li>
+      <li><a href= "tablaBwin.html">BWIN</a></li>
+      <li><a href= "tablaBet365.html">Bet365</a></li>
+      <li><a href= "tablaSportium.html">Sportium</a></li>
+      <li><a href= "tablaSuertia.html">Suertia</a></li>
+      <li><a href= "TablaCuotasCasas/888Sport.jsp">888Sport</a></li>
+      <li><a href= "https://es.wikipedia.org/wiki/S%C3%ADdney">Retabet</a></li>
+      <li><a href= "tablaCodere.html">Codere</a></li>
+      <li><a href= "https://es.wikipedia.org/wiki/Melbourne">CasinoBarcelona</a></li>
+      <li><a href= "https://es.wikipedia.org/wiki/S%C3%ADdney">CasinoMadrid</a></li>
+      <li><a href= "https://es.wikipedia.org/wiki/Melbourne">Luckia</a></li>
+      <li><a href= "https://es.wikipedia.org/wiki/S%C3%ADdney">Interwetten</a></li>
+      <li><a href= "https://es.wikipedia.org/wiki/Melbourne">GoldenPark</a></li>
 
     </ul>
-</nav>
+  </nav>
 
 
-<table align="center" class="botonesCasas">
+  <table class="botonesCasas">
 
     <td><input type="submit" value="LALIGA" id="laliga" name="envio"/>
     <td><input type="submit" value="PREMIER" id="premier" name="envio"/>
@@ -84,119 +64,191 @@
     <td><input type="submit" value="PORTUGAL" id="portugal" name="envio"/>
     <td><input type="submit" value="CHAMPIONS" id="champions" name="envio"/>
     <td><input type="submit" value="EUROPA" id="europa" name="envio"/>
-</table>
+  </table>
 
 
-
-<table>
+  <div id="contenedorTablacentral">
+  <table id="tablacentral1X2">
     <thead>
     <tr>
-        <th></th>
-        <th></th>
-        <th>BWIN</th>
-        <th>BET365</th>
-        <th>SPORTIUM</th>
-        <th>BETFAIR</th>
-        <th>SPORTIUM</th>
-        <th>888SPORT</th>
-        <th>SUERTIA</th>
-        <th>RETABET</th>
-        <th>CASINOBARCELONA</th>
-        <th>CASINOMADRID</th>
-        <th>LUCKIA</th>
-        <th>INTERWETTEN</th>
-        <th>GOLDENPARK</th>
+      <th>-</th>
     </tr>
     </thead>
-
     <tbody>
-
-
-
-        <tr>
-            <td>1</td>
-            <td>Madrid</td>
-            <td>2.9</td>
-            <td>3.1</td>
-
-            <td>2.95</td>
-            <td>3.05</td>
-            <td>2.890</td>
-            <td>2.91</td>
-            <td>3</td>
-            <td>3.1</td>
-            <td>3</td>
-            <td>3.05</td>
-            <td>3.1</td>
-            <td>3.1</td>
-        </tr>
-
-        <tr>
-            <td>X</td>
-            <td>Empate</td>
-            <td>2.9</td>
-            <td>3.1</td>
-            <td>2.95</td>
-            <td>3.05</td>
-            <td>2.890</td>
-            <td>2.91</td>
-            <td>3</td>
-            <td>3.1</td>
-            <td>3</td>
-            <td>3.05</td>
-            <td>3.1</td>
-            <td>3.1</td>
-        </tr>
-
-        <tr>
-            <td>2</td>
-            <td>Barcelona</td>
-            <td>2.9</td>
-            <td>3.1</td>
-
-            <td>2.95</td>
-            <td>3.05</td>
-            <td>2.890</td>
-            <td>2.91</td>
-            <td>3</td>
-            <td>3.1</td>
-            <td>3</td>
-            <td>3.05</td>
-            <td>3.1</td>
-            <td>3.1</td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td>% Pago</td>
-            <td>98</td>
-            <td>97</td>
-            <td>99</td>
-            <td>96</td>
-            <td>95</td>
-            <td>99</td>
-            <td>97</td>
-            <td>99</td>
-            <td>98</td>
-            <td>90</td>
-            <td>90</td>
-            <td>92</td>
-        </tr>
-
+      <tr>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          X
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Pago %
+        </td>
+      </tr>
+       <tr>
+        <td>
+              -
+        </td>
+      </tr>
 
     </tbody>
+  </table>
 
-</table>
-<p id="texto introduccion"> DondeApuesto es una pagina web en la que podrás comparar las cuotas de las principales casas de
+  
+<c:forEach var="CuotasTempSportium" items="${ListaCuotasSportium}">
+
+    <table class="tablaEquipos">
+        <thead>
+            <tr>
+              <th>-</th>
+            </tr>
+            </thead>
+      <tbody>
+      <tr>
+        <td>
+            ${CuotasTempSportium.nombreEquipo1}
+        </td>
+      </tr>
+      <tr>
+        <td>
+           X
+        </td>
+      </tr>
+      <tr>
+        <td>
+            ${CuotasTempSportium.nombreEquipo2}
+        </td>
+      </tr>
+      <tr>
+        <td>
+              -
+        </td>
+      </tr>
+      <tr>
+        <td>
+              -
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+</c:forEach>
+
+<c:forEach var="CuotasTempSportium" items="${ListaCuotasSportium}">
+
+    <table class="tablaHoraFecha">
+        <thead>
+            <tr>
+              <th>-</th>
+            </tr>
+            </thead>
+      <tbody>
+        <tr>
+            <td>
+                  -
+            </td>
+          </tr>
+      
+      <tr>
+        <td>
+            ${CuotasTempSportium.fecha}
+        </td>
+      </tr>
+      <tr>
+        <td>
+            ${CuotasTempSportium.hora}
+        </td>
+      </tr>
+      <tr>
+        <td>
+              -
+        </td>
+      </tr>
+      <tr>
+        <td>
+              -
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+
+  </c:forEach>
+
+
+<c:forEach var="CuotasTempSportium" items="${ListaCuotasSportium}">
+
+      <table class="tablaCuotas">
+        <thead>
+            <tr>
+              <th>Sportium</th>
+            </tr>
+            </thead>
+
+        <tbody>
+        <tr>
+          <td>
+              ${CuotasTempSportium.cuota1}
+          </td>
+        </tr>
+        <tr>
+          <td>
+              ${CuotasTempSportium.cuotaX}
+          </td>
+        </tr>
+        <tr>
+          <td>
+              ${CuotasTempSportium.cuota2}
+          </td>
+        </tr>
+        <tr>
+          <td>
+              ${CuotasTempSportium.porcentajePago}
+          </td>
+        </tr>
+        <tr>
+            <td>
+                  -
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </c:forEach>
+
+
+
+
+
+  </div>
+  <p id="texto introduccion"> DondeApuesto es una pagina web en la que podrás comparar las cuotas de las principales casas de
     apuestas deportivas de España. Si te registras con nosotros podras configurar las casas de apuestas, ademas podras
     recibir notificaciones cuando una cuota suba o baje a la cuota que te interese. Tambien se mostrará un grafico con el historial de la cuota seleccionada. Tambien
     Registrar usuarios, Autocompletar formularios,
-</p>
+  </p>
 
-<footer>
+  <footer>
     <p>&copy; 2020.Adrian Fernandez Elizaga</p>
-</footer>
-</body>
+  </footer>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="/__/firebase/7.14.4/firebase-app.js"></script>
 
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+           https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="/__/firebase/7.14.4/firebase-analytics.js"></script>
 
+      <!-- Initialize Firebase -->
+      <script src="/__/firebase/init.js"></script>
+ 
+  </body>
 </html>
