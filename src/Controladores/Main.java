@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 @WebServlet(name = "Main", urlPatterns = "/Main")
@@ -77,9 +78,13 @@ public class Main extends HttpServlet {
         try {
            /* System.setProperty("javax.net.ssl.keyStore", "C://Program Files//Apache Software Foundation//Tomcat 9.0//cert//keys");
             System.setProperty("javax.net.ssl.keyStorePassword", "changeit");*/
-            cuotasSportium = Sportium.parseadorSportium("Sportium","Bundesliga", "https://sports.sportium.es/es/t/45915/Bundesliga");
 
-            cuotasBetfair = Betfair.parseadorBetfair("Betfair","Bundesliga", "https://www.betfair.es/sport/football?id=59&competitionEventId=605621&action=loadCompetition&modules=multipickavbId@1006&selectedTabType=COMPETITION");
+
+
+            Date date = new Date();
+            cuotasSportium = Sportium.parseadorSportium("Sportium","Bundesliga", "https://sports.sportium.es/es/t/45915/Bundesliga", date);
+
+            cuotasBetfair = Betfair.parseadorBetfair("Betfair","Bundesliga", "https://www.betfair.es/sport/football?id=59&competitionEventId=605621&action=loadCompetition&modules=multipickavbId@1006&selectedTabType=COMPETITION", date);
             cuotasBetfairOrdenadas = comparador(cuotasSportium, cuotasBetfair);
 
             cuotasJuegging = Juegging.parseador ("Juegging","Bundesliga", "https://apuestas.juegging.es/esp/Sport/Competicion/351");
@@ -106,10 +111,14 @@ public class Main extends HttpServlet {
             cuotasSuertia =  Suertia.parseadorSuertia("Suertia","Bundesliga", "https://apuestas.suertia.es/competicion/268-bundesliga");
             cuotasSuertiaOrdenadas = comparador(cuotasSportium, cuotasSuertia);
 
+            cuotasCasinoBarcelona = CasinoBarcelona.parseadorBarcelona("CasinoBarcelona","Bundesliga", "https://apuestas.casinobarcelona.es/competicion/268-bundesliga");
+            cuotasCasinoBarcelonaOrdenadas = comparador(cuotasSportium, cuotasCasinoBarcelona);
 
-            //  cuotasCasinoBarcelona = CasinoBarcelona.parseadorBarcelona("CasinoBarcelona","Bundesliga", "https://apuestas.casinobarcelona.es/competicion/268-bundesliga");
-       //     cuotasCasinoMadrid = CasinoMadrid.parseadorMadrid("CasinoMadrid","Bundesliga", "https://apuestas.casinogranmadridonline.es/es/futbol/alemania/268-bundesliga");
-       //     cuotasGoldenPark = GoldenPark.parseadorGolden("GoldenPark","Bundesliga", "https://apuestas.goldenpark.es/es/competicion/268-bundesliga#");
+            cuotasCasinoMadrid = CasinoMadrid.parseadorMadrid("CasinoMadrid","Bundesliga", "https://apuestas.casinogranmadridonline.es/es/futbol/alemania/268-bundesliga");
+            cuotasCasinoMadridOrdenadas = comparador(cuotasSportium, cuotasCasinoMadrid);
+
+            cuotasGoldenPark = GoldenPark.parseadorGolden("GoldenPark","Bundesliga", "https://apuestas.goldenpark.es/es/competicion/268-bundesliga#");
+            cuotasGoldenParkOrdenadas = comparador(cuotasSportium, cuotasGoldenPark);
 
 
             //agregar la lista al request
@@ -131,7 +140,7 @@ public class Main extends HttpServlet {
             }
             if (cuotasMbetOrdenadas != null) {
 
-                request.setAttribute("ListaCuotasMbet", cuotasMbet );
+                request.setAttribute("ListaCuotasMbet", cuotasMbetOrdenadas );
             }
             if (cuotasMarcaApuestasOrdenadas != null) {
 
@@ -141,10 +150,10 @@ public class Main extends HttpServlet {
 
                 request.setAttribute("ListaCuotasKirolbet", cuotasKirolbetOrdenadas);
             }
-            if (cuotasRetabetOrdenadas != null) {
+          /*  if (cuotasRetabetOrdenadas != null) {
 
                 request.setAttribute("ListaCuotasRetabet", cuotasRetabetOrdenadas);
-            }
+            }*/
             if (cuotasSuertiaOrdenadas != null) {
 
                 request.setAttribute("ListaCuotasSuertia", cuotasSuertiaOrdenadas);
@@ -152,7 +161,19 @@ public class Main extends HttpServlet {
 
             if (cuotasSissalOrdenadas != null) {
 
-                request.setAttribute("ListaCuotas", cuotasSissalOrdenadas);
+                request.setAttribute("ListaCuotasSissal", cuotasSissalOrdenadas);
+            }
+            if (cuotasCasinoBarcelonaOrdenadas != null) {
+
+                request.setAttribute("ListaCuotasCasinoBarcelona", cuotasCasinoBarcelonaOrdenadas);
+            }
+            if (cuotasCasinoMadridOrdenadas != null) {
+
+                request.setAttribute("ListaCuotasCasinoMadrid", cuotasCasinoMadridOrdenadas);
+            }
+            if (cuotasGoldenParkOrdenadas != null) {
+
+                request.setAttribute("ListaCuotasGoldenPark", cuotasGoldenParkOrdenadas);
             }
 
             //enviar request a jsp

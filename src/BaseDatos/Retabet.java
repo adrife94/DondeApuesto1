@@ -93,10 +93,11 @@ public class Retabet {
 
                     double porcentajefinal = (porcenatje1 + porcentajex + porcentaje2) * 100;
                     String porcentajefinaltexto = String.valueOf(porcentajefinal);
+                    String porcentajefinalredondeado = String.format("%.2f", porcentajefinal);
 
 
                     String numid = Integer.toString(numeroidentificador);
-                    Cuotas cuota = new Cuotas(listaPartidos.get(a), listaPartidos.get(b), listaCuotas.get(c), listaCuotas.get(d), listaCuotas.get(e), porcentajefinaltexto);
+                    Cuotas cuota = new Cuotas(listaPartidos.get(a), listaPartidos.get(b), listaCuotas.get(c), listaCuotas.get(d), listaCuotas.get(e), porcentajefinalredondeado.replace(",", "."));
                     lista.add(cuota);
                     a += 2;
                     b += 2;

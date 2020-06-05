@@ -123,11 +123,17 @@ public class Mbet {
                     double porcentaje2 = (1/cuota2double);
 
                     double porcentajefinal = (porcenatje1 + porcentajex + porcentaje2) * 100;
-                    String porcentajefinaltexto = String.valueOf(porcentajefinal);
+                 //   String porcentajefinaltexto = String.valueOf(porcentajefinal);
+
+                    double resultado = (100 /porcentajefinal * 100) - 100;
+
+                    double beneficio = (resultado/100) * 100;
+
+                    String porcentajefinalredondeado = String.format("%.2f", beneficio);
 
 
-                    String numid = Integer.toString(numeroidentificador);
-                    Cuotas cuota = new Cuotas(listaEquipos.get(a), listaEquipos.get(b), listaCuotas.get(c), listaCuotas.get(d), listaCuotas.get(e), porcentajefinaltexto);
+               //     String numid = Integer.toString(numeroidentificador);
+                    Cuotas cuota = new Cuotas(listaEquipos.get(a), listaEquipos.get(b), listaCuotas.get(c), listaCuotas.get(d), listaCuotas.get(e), porcentajefinalredondeado.replace(",", "."));
                     lista.add(cuota);
                     a+=2;
                     b+=2;

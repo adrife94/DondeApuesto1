@@ -95,7 +95,7 @@ public class Kirolbet {
 
 
             if (listaPartidos.size() != 0) {
-                for (int i = 0; i < (listaPartidos.size() / 2) - 1; i++) {
+                for (int i = 0; i <= (listaPartidos.size() / 2) - 1; i++) {
                     String cuota1 = listaCuotas.get(c).replace(",", ".");
                     String cuotax = listaCuotas.get(d).replace(",", ".");
                     String cuota2 = listaCuotas.get(e).replace(",", ".");
@@ -108,11 +108,17 @@ public class Kirolbet {
                     double porcentaje2 = (1 / cuota2double);
 
                     double porcentajefinal = (porcenatje1 + porcentajex + porcentaje2) * 100;
-                    String porcentajefinaltexto = String.valueOf(porcentajefinal);
+                //    String porcentajefinaltexto = String.valueOf(porcentajefinal);
+
+                    double resultado = (100 /porcentajefinal * 100) - 100;
+
+                    double beneficio = (resultado/100) * 100;
+
+                    String porcentajefinalredondeado = String.format("%.2f", beneficio);
 
 
-                    String numid = Integer.toString(numeroidentificador);
-                    Cuotas cuota = new Cuotas(listaPartidos.get(a), listaPartidos.get(b), listaCuotas.get(c), listaCuotas.get(d), listaCuotas.get(e), porcentajefinaltexto);
+                 //   String numid = Integer.toString(numeroidentificador);
+                    Cuotas cuota = new Cuotas(listaPartidos.get(a), listaPartidos.get(b), cuota1, cuotax, cuota2, porcentajefinalredondeado.replace(",", "."));
                     lista.add(cuota);
                     a += 2;
                     b += 2;

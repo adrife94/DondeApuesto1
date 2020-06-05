@@ -70,6 +70,9 @@ public class EstandarizadorNombresCasinoMadrid {
             case "Ausburg":
                 equipomodificado = "Ausburgo";
                 break;
+            case "Augsburgo":
+                equipomodificado = "Ausburgo";
+                break;
             case "Wolfsburg":
                 equipomodificado = "Wolfsburgo";
                 break;
@@ -86,6 +89,9 @@ public class EstandarizadorNombresCasinoMadrid {
                 equipomodificado = "Friburgo";
                 break;
             case "Eintracht Frankfurt":
+                equipomodificado = "Frankfurt";
+                break;
+            case "Eintracht Francfort":
                 equipomodificado = "Frankfurt";
                 break;
             case "Borussia Mönchengladbach":

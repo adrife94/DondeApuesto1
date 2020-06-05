@@ -113,7 +113,7 @@ public class GoldenPark {
 
             if(listaEquiposGolden.size()!= 0) {
 
-                for (int i=0 ; i<= listaEquiposGolden.size() - 1; i++ ) {
+                for (int i=0 ; i<= listaEquiposGolden.size() / 2 - 1; i++ ) {
 
                         String cuota1 = listaCuotaGolden.get(c).replace(",", ".");
                         String cuotax = listaCuotaGolden.get(d).replace(",", ".");
@@ -127,11 +127,17 @@ public class GoldenPark {
                         double porcentaje2 = (1/cuota2double);
 
                         double porcentajefinal = (porcenatje1 + porcentajex + porcentaje2) * 100;
-                        String porcentajefinaltexto = String.valueOf(porcentajefinal);
+                       // String porcentajefinaltexto = String.valueOf(porcentajefinal);
+
+                    double resultado = (100 /porcentajefinal * 100) - 100;
+
+                    double beneficio = (resultado/100) * 100;
+
+                    String porcentajefinalredondeado = String.format("%.2f", beneficio);
 
 
-                        String numid = Integer.toString(numeroidentificador);
-                        Cuotas cuota = new Cuotas(listaEquiposGolden.get(a), listaEquiposGolden.get(b), listaCuotaGolden.get(c), listaCuotaGolden.get(d), listaCuotaGolden.get(e), porcentajefinaltexto);
+                    //    String numid = Integer.toString(numeroidentificador);
+                        Cuotas cuota = new Cuotas(listaEquiposGolden.get(a), listaEquiposGolden.get(b), listaCuotaGolden.get(c), listaCuotaGolden.get(d), listaCuotaGolden.get(e), porcentajefinalredondeado.replace(",", "."));
                         lista.add(cuota);
                         a+=2;
                         b+=2;

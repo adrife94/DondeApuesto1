@@ -7,13 +7,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Sportium {
 
-    public static List<Cuotas> parseadorSportium( String casa, String liga, String url ) {
+    public static List<Cuotas> parseadorSportium(String casa, String liga, String url, Date date) {
+        PostgreSqlConexion postgreSqlConexion = new PostgreSqlConexion(casa);
+        EventoBaseDatos eventoBaseDatos = new EventoBaseDatos(postgreSqlConexion);
         List<Cuotas> lista = null;
         try {
 
@@ -94,11 +96,9 @@ public class Sportium {
             int c = 0;
             int d = 1;
             int e = 2;
-            int numeroidentificador = 1;
 
             if (listaPartidosSportiumLaLiga.size() != 0) {
                 for (int i = 0; i < (listaPartidosSportiumLaLiga.size() / 2); i++) {
-                    DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
                     String cuota1 = listaCuotasSportiumLaLiga.get(c);
                     String cuotax = listaCuotasSportiumLaLiga.get(d);
@@ -112,13 +112,28 @@ public class Sportium {
                     double porcentaje2 = (1/cuota2double);
 
                     double porcentajefinal = (porcenatje1 + porcentajex + porcentaje2) * 100;
-                    String porcentajefinaltexto = String.valueOf(porcentajefinal);
-                    String porcentajefinaltextotruncado = decimalFormat.format(porcentajefinal);
-                    String porcentajefinaltextotruncadopunto = porcentajefinaltextotruncado.replace(",", ".");
+                //    String porcentajefinaltexto = String.valueOf(porcentajefinal);
 
 
-                    String numid = Integer.toString(numeroidentificador);
-                    Cuotas cuota = new Cuotas(listaPartidosSportiumLaLiga.get(a), listaPartidosSportiumLaLiga.get(b), listaCuotasSportiumLaLiga.get(c), listaCuotasSportiumLaLiga.get(d), listaCuotasSportiumLaLiga.get(e), porcentajefinaltextotruncadopunto, listaFechasSportiumLaLiga.get(numhorafecha),listaHorasSportiumLaLiga.get(numhorafecha));
+                    double resultado = (100 /porcentajefinal * 100) - 100;
+
+                    double beneficio = (resultado/100) * 100;
+
+                    String porcentajefinalredondeado = String.format("%.2f", beneficio).replace(",", ".");
+
+                    double porcentajefonalredondeadodouble = Double.parseDouble(porcentajefinalredondeado);
+
+
+                //    String numid = Integer.toString(numeroidentificador);
+                    Cuotas cuota = new Cuotas(listaPartidosSportiumLaLiga.get(a), listaPartidosSportiumLaLiga.get(b), listaCuotasSportiumLaLiga.get(c), listaCuotasSportiumLaLiga.get(d), listaCuotasSportiumLaLiga.get(e), porcentajefinalredondeado.replace(",", "."), listaFechasSportiumLaLiga.get(numhorafecha),listaHorasSportiumLaLiga.get(numhorafecha));
+                //    Cuotas cuotaPostgres = new Cuotas(listaPartidosSportiumLaLiga.get(a), listaPartidosSportiumLaLiga.get(b), listaCuotasSportiumLaLiga.get(c), listaCuotasSportiumLaLiga.get(d), listaCuotasSportiumLaLiga.get(e), porcentajefinalredondeado.replace(",", "."), listaFechasSportiumLaLiga.get(numhorafecha),listaHorasSportiumLaLiga.get(numhorafecha));
+
+                    eventoBaseDatos.crearTablaSportium(listaPartidosSportiumLaLiga.get(a).replace(" ", ""), listaPartidosSportiumLaLiga.get(b).replace(" ", ""));
+
+                    Cuotas cuotas = new Cuotas(listaFechasSportiumLaLiga.get(numhorafecha), listaHorasSportiumLaLiga.get(numhorafecha), listaPartidosSportiumLaLiga.get(a), listaPartidosSportiumLaLiga.get(b), date, cuota1double, cuotaxdouble, cuota2double, porcentajefonalredondeadodouble, liga, "2019-2020" );
+
+                    eventoBaseDatos.InsertarCuotasSportium(cuotas, listaPartidosSportiumLaLiga.get(a), listaPartidosSportiumLaLiga.get(b));
+
                     lista.add(cuota);
                     a+=2;
                     b+=2;
