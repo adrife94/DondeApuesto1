@@ -8,20 +8,36 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
 public class MarcaApuestas {
-    public static List<Cuotas> parseadorMarca (String casa, String liga, String url ){
+    public static List<Cuotas> parseadorMarca (String casa, String liga, String url, Date date ){
+        PostgreSqlConexion postgreSqlConexion = new PostgreSqlConexion(casa);
+        EventoBaseDatos eventoBaseDatos = new EventoBaseDatos(postgreSqlConexion);
         List<Cuotas> lista = null;
+        Document marca;
+        Elements tabla3corredores = null, elementosCuota = null, elementosEqipo = null;
         try {
 
-        Document barcelona = Jsoup.connect(url).get();//Con Basino Barcelona el pequeño problema es que te devuelve en un mismo elemento FC Sevilla / Leganés, en vez de los equipos por separado
-        Elements tabla3corredores = barcelona.getElementsByClass("coupon coupon-horizontal coupon-scoreboard video-enabled");
-        //Cuota
-        Elements elementosCuota = tabla3corredores.select("span[class=price dec]");
-        //Equipo
-        Elements elementosEqipo = tabla3corredores.select("span[class=seln-name]");
+            if (liga.equals("LaLiga")) {
+                marca = Jsoup.connect(url).get();//Con Basino Barcelona el pequeño problema es que te devuelve en un mismo elemento FC Sevilla / Leganés, en vez de los equipos por separado
+                tabla3corredores  = marca.getElementsByClass("coupon coupon-horizontal coupon-scoreboard ");
+                //Cuota
+                elementosCuota  = tabla3corredores.select("span[class=price dec]");
+                //Equipo
+                elementosEqipo = tabla3corredores.select("span[class=seln-name]");
+            } else {
+                marca = Jsoup.connect(url).get();//Con Basino Barcelona el pequeño problema es que te devuelve en un mismo elemento FC Sevilla / Leganés, en vez de los equipos por separado
+                tabla3corredores  = marca.getElementsByClass("coupon coupon-horizontal coupon-scoreboard video-enabled");
+                //Cuota
+                elementosCuota  = tabla3corredores.select("span[class=price dec]");
+                //Equipo
+                elementosEqipo = tabla3corredores.select("span[class=seln-name]");
+            }
+
+
 
             lista = new ArrayList<>();
 
@@ -73,7 +89,6 @@ public class MarcaApuestas {
         int c = 0;
         int d = 1;
         int e = 2;
-        int numeroidentificador = 1;
 
 
             if(listaPartidosMarca.size()!= 0) {
@@ -91,14 +106,20 @@ public class MarcaApuestas {
                     double porcentaje2 = (1/cuota2double);
 
                     double porcentajefinal = (porcenatje1 + porcentajex + porcentaje2) * 100;
-                //    String porcentajefinaltexto = String.valueOf(porcentajefinal);
                     double resultado = (100 /porcentajefinal * 100) - 100;
 
                     double beneficio = (resultado/100) * 100;
 
-                    String porcentajefinalredondeado = String.format("%.2f", beneficio);
+                    String porcentajefinalredondeado = String.format("%.2f", beneficio).replace(",", ".");
+                    double porcentajefonalredondeadodouble = Double.parseDouble(porcentajefinalredondeado);
 
-                 //   String numid = Integer.toString(numeroidentificador);
+                    eventoBaseDatos.crearTabla(listaPartidosMarca.get(a).replace(" ", ""), listaPartidosMarca.get(b).replace(" ", ""));
+
+                    Cuotas cuotas = new Cuotas(listaPartidosMarca.get(a), listaPartidosMarca.get(b), date, cuota1double, cuotaxdouble, cuota2double, porcentajefonalredondeadodouble, liga, "2019-2020" );
+
+                    eventoBaseDatos.InsertarCuotas(cuotas, listaPartidosMarca.get(a), listaPartidosMarca.get(b));
+
+
                     Cuotas cuota = new Cuotas(listaPartidosMarca.get(a), listaPartidosMarca.get(b), listaCuotaMarca.get(c), listaCuotaMarca.get(d), listaCuotaMarca.get(e), porcentajefinalredondeado.replace(",", "."));
                     lista.add(cuota);
                     a+=2;

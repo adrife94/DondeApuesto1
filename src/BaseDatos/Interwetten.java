@@ -7,10 +7,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Interwetten {
-    public static List<Cuotas> parseadorInterwetten(String casa, String liga, String url ) {
+    public static List<Cuotas> parseadorInterwetten(String casa, String liga, String url, Date date ) {
+        PostgreSqlConexion postgreSqlConexion = new PostgreSqlConexion(casa);
+        EventoBaseDatos eventoBaseDatos = new EventoBaseDatos(postgreSqlConexion);
         List<Cuotas> lista = null;
         try {
 
@@ -95,12 +98,22 @@ public class Interwetten {
 
                     double beneficio = (resultado/100) * 100;
 
-                        String porcentajefinalredondeado = String.format("%.2f", beneficio);
+                        String porcentajefinalredondeado = String.format("%.2f", beneficio).replace(",", ".");
+
+                    double porcentajefonalredondeadodouble = Double.parseDouble(porcentajefinalredondeado);
+
+                    eventoBaseDatos.crearTabla(listaPartidos.get(a).replace(" ", ""), listaPartidos.get(e).replace(" ", ""));
+
+                    Cuotas cuotas = new Cuotas(listaPartidos.get(a), listaPartidos.get(e), date, cuota1double, cuotaxdouble, cuota2double, porcentajefonalredondeadodouble, liga, "2019-2020" );
+
+                    eventoBaseDatos.InsertarCuotas(cuotas, listaPartidos.get(a), listaPartidos.get(e));
 
 
 
 
-                   //     String numid = Integer.toString(numeroidentificador);
+
+
+                    //     String numid = Integer.toString(numeroidentificador);
                         Cuotas cuota = new Cuotas(listaPartidos.get(a), listaPartidos.get(e), cuota1, cuotax, cuota2,  porcentajefinalredondeado.replace(",", "."));
                         lista.add(cuota);
                         a+=3;

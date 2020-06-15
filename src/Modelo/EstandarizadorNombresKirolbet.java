@@ -12,6 +12,9 @@ public class EstandarizadorNombresKirolbet {
             case "RC Celta":
                 equipomodificado = "Celta";
                 break;
+            case "Celta de Vigo":
+                equipomodificado = "Celta";
+                break;
             case "Valencia CF":
                 equipomodificado = "Valencia";
                 break;
@@ -19,9 +22,15 @@ public class EstandarizadorNombresKirolbet {
                 equipomodificado = "Eibar";
                 break;
             case "CD Leganés":
-                equipomodificado = "Leganés";
+                equipomodificado = "Leganes";
+                break;
+            case "Leganés":
+                equipomodificado = "Leganes";
                 break;
             case "D.Alavés":
+                equipomodificado = "Alaves";
+                break;
+            case "CD Alavés":
                 equipomodificado = "Alaves";
                 break;
             case "Villarreal CF":
@@ -39,11 +48,14 @@ public class EstandarizadorNombresKirolbet {
             case "Real Valladolid":
                 equipomodificado = "Valladolid";
                 break;
-            case "Atlético Madrid":
+            case "Atlético de Madrid":
                 equipomodificado = "Atletico Madrid";
                 break;
             case "Getafe CF":
                 equipomodificado = "Getafe";
+                break;
+            case "Granada CF":
+                equipomodificado = "Granada";
                 break;
         }
 
@@ -126,7 +138,7 @@ public class EstandarizadorNombresKirolbet {
             case "Bologna":
                 equipomodificado = "Bolonia";
                 break;
-            case "AC Milan":
+            case "AC Milán":
                 equipomodificado = "Milan";
                 break;
             case "Genoa":
@@ -134,6 +146,64 @@ public class EstandarizadorNombresKirolbet {
                 break;
             case "Parma Calcio 1913":
                 equipomodificado = "Parma";
+                break;
+            case "FC Torino":
+                equipomodificado = "Torino";
+                break;
+            case "FC Parma":
+                equipomodificado = "Parma";
+                break;
+            case "Hellas Verona":
+                equipomodificado = "Verona";
+                break;
+            case "Atalanta Bergamo":
+                equipomodificado = "Atalanta";
+                break;
+            case "US Sassuolo":
+                equipomodificado = "Sassuolo";
+                break;
+            case "Inter de Milán":
+                equipomodificado = "Inter";
+                break;
+            case "UC Sampdoria":
+                equipomodificado = "Sampdoria";
+                break;
+            case "Brescia Calcio":
+                equipomodificado = "Brescia";
+                break;
+            case "AC Fiorentina":
+                equipomodificado = "Fiorentina";
+                break;
+            case "US Lecce":
+                equipomodificado = "Lecce";
+                break;
+            case "FC Bologna":
+                equipomodificado = "Bolonia";
+                break;
+            case "Juventus de Turín":
+                equipomodificado = "Juventus";
+                break;
+            case "Spal 2013":
+                equipomodificado = "Spal";
+                break;
+            case "Udinese Calcio":
+                equipomodificado = "Udinese";
+                break;
+            case "Genoa CFC":
+                equipomodificado = "Genova";
+                break;
+            case "AS Roma":
+                equipomodificado = "Roma";
+                break;
+            case "SS Lazio":
+                equipomodificado = "Lazio";
+                break;
+
+            case "SSC Nápoles":
+                equipomodificado = "Napoles";
+                break;
+            case "Génova":
+                equipomodificado = "Genova";
                 break;
 
         }
@@ -147,8 +217,59 @@ public class EstandarizadorNombresKirolbet {
 
 
         switch (equipos) {
-            case "Sheff Utd":
+            case "Sheffield Utd":
                 equipomodificado = "Sheffield";
+                break;
+            case "Manchester City":
+                equipomodificado = "Man City";
+                break;
+            case "Manchester United":
+                equipomodificado = "Man United";
+                break;
+            case "FC Arsenal":
+                equipomodificado = "Arsenal";
+                break;
+            case "Norwich City":
+                equipomodificado = "Norwich";
+                break;
+            case "Southampton FC":
+                equipomodificado = "Southampton";
+                break;
+            case "Tottenham Hotspur":
+                equipomodificado = "Tottenham";
+                break;
+            case "FC Watford":
+                equipomodificado = "Watford";
+                break;
+            case "Leicester City":
+                equipomodificado = "Leicester";
+                break;
+            case "FC Brighton & Hove Albion":
+                equipomodificado = "Brighton";
+                break;
+            case "West Ham United":
+                equipomodificado = "West Ham";
+                break;
+            case "Wolverhampton Wanderers":
+                equipomodificado = "Wolves";
+                break;
+            case "AFC Bournemouth":
+                equipomodificado = "Bournemouth";
+                break;
+            case "Newcastle United":
+                equipomodificado = "Newcastle";
+                break;
+            case "Chelsea FC":
+                equipomodificado = "Chelsea";
+                break;
+            case "FC Everton":
+                equipomodificado = "Everton";
+                break;
+            case "FC Liverpool":
+                equipomodificado = "Liverpool";
+                break;
+            case "FC Burnley":
+                equipomodificado = "Burnley";
                 break;
         }
 

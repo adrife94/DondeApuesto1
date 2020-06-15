@@ -123,4 +123,18 @@ public class EventoBaseDatos {
             e.printStackTrace();
         }
     }
+
+    public void obtenerCuotaEvento (String equipo1, String equipo2) {
+
+
+        try {
+            String sql = "SELECT cuota1, cuotax, cuota2 FROM " + equipo1 + equipo2 + ";";
+            PreparedStatement preparedStatement = conexion.getConnection().prepareStatement(sql);
+
+            preparedStatement.execute();
+
+        } catch ( Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -9,7 +9,13 @@ public class EstandarizadorNombresInterwetten {
             case "Athletic Club":
                 equipomodificado = "Athletic";
                 break;
+            case "Athletic de Bilbao":
+                equipomodificado = "Athletic";
+                break;
             case "RC Celta":
+                equipomodificado = "Celta";
+                break;
+            case "Celta de Vigo":
                 equipomodificado = "Celta";
                 break;
             case "Valencia CF":
@@ -19,9 +25,15 @@ public class EstandarizadorNombresInterwetten {
                 equipomodificado = "Eibar";
                 break;
             case "CD Leganés":
-                equipomodificado = "Leganés";
+                equipomodificado = "Leganes";
+                break;
+            case "Leganés":
+                equipomodificado = "Leganes";
                 break;
             case "D.Alavés":
+                equipomodificado = "Alaves";
+                break;
+            case "Deportivo Alavés SAD":
                 equipomodificado = "Alaves";
                 break;
             case "Villarreal CF":
@@ -45,6 +57,16 @@ public class EstandarizadorNombresInterwetten {
             case "Getafe CF":
                 equipomodificado = "Getafe";
                 break;
+            case "Real Betis":
+                equipomodificado = "Betis";
+                break;
+            case "FC Barcelona":
+                equipomodificado = "Barcelona";
+                break;
+            case "Real Madrid CF":
+                equipomodificado = "Real Madrid";
+                break;
+
         }
 
         return equipomodificado;
@@ -123,20 +145,35 @@ public class EstandarizadorNombresInterwetten {
         String equipomodificado = equipos;
 
         switch (equipos) {
-            case "SSC Napoli":
+            case "SSC Nápoles":
                 equipomodificado = "Napoles";
                 break;
             case "Bologna":
                 equipomodificado = "Bolonia";
                 break;
-            case "AC Milan":
+            case "AC Milán":
                 equipomodificado = "Milan";
                 break;
             case "Genoa":
                 equipomodificado = "Genova";
                 break;
+            case "Génova CFC":
+                equipomodificado = "Genova";
+                break;
             case "Parma Calcio 1913":
                 equipomodificado = "Parma";
+                break;
+            case "Torino FC":
+                equipomodificado = "Torino";
+                break;
+            case "Hellas Verona":
+                equipomodificado = "Verona";
+                break;
+            case "AS Roma":
+                equipomodificado = "Roma";
+                break;
+            case "Inter Milano":
+                equipomodificado = "Inter";
                 break;
 
         }
@@ -150,8 +187,59 @@ public class EstandarizadorNombresInterwetten {
 
 
         switch (equipos) {
-            case "Sheff Utd":
+            case "Sheffield United":
                 equipomodificado = "Sheffield";
+                break;
+            case "Manchester City":
+                equipomodificado = "Man City";
+                break;
+            case "Manchester United":
+                equipomodificado = "Man United";
+                break;
+            case "FC Arsenal":
+                equipomodificado = "Arsenal";
+                break;
+            case "Norwich City":
+                equipomodificado = "Norwich";
+                break;
+            case "Southampton FC":
+                equipomodificado = "Southampton";
+                break;
+            case "Tottenham Hotspur":
+                equipomodificado = "Tottenham";
+                break;
+            case "Watford FC":
+                equipomodificado = "Watford";
+                break;
+            case "Leicester City":
+                equipomodificado = "Leicester";
+                break;
+            case "Brighton & Hove Albion":
+                equipomodificado = "Brighton";
+                break;
+            case "West Ham United":
+                equipomodificado = "West Ham";
+                break;
+            case "Wolverhampton Wanderers":
+                equipomodificado = "Wolves";
+                break;
+            case "AFC Bournemouth":
+                equipomodificado = "Bournemouth";
+                break;
+            case "Newcastle United":
+                equipomodificado = "Newcastle";
+                break;
+            case "Chelsea FC":
+                equipomodificado = "Chelsea";
+                break;
+            case "FC Everton":
+                equipomodificado = "Everton";
+                break;
+            case "FC Liverpool":
+                equipomodificado = "Liverpool";
+                break;
+            case "Burnley FC":
+                equipomodificado = "Burnley";
                 break;
         }
 

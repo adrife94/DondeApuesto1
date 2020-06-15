@@ -7,26 +7,27 @@
     <link href="css/estilos.css" rel="stylesheet" >
 </head>
 <body>
-<div id="container">
-    <img id="logo" src="imagenes/Dondeapuesto.png" width="300" height="100">
-</div>
+<div id="contenedorBarraSuperior">
 
+    <div class="topnav">
+        <%-- <a href="#Login">Login</a>
+         <a href="registro.html">Registrar</a>--%>
+        <a href="#home">Estadisticas</a>
+        <a href="#CasasApuestas">Casas de Apuestas</a>
+        <a href="#Bonos">Bonos</a>
+        <a href="Rankings.html">Rankings</a>
+      <%--  <a href="#Consejos">Consejos</a>--%>
+        <a class="active" href="Calculadora.jsp">Calculadora Surebets</a>
+        <a href="Main" >Comparador</a>
 
-
-<div class="topnav">
-    <a href="#Login">Login</a>
-    <a href="#Registrar">Registrar</a>
-    <a class="active" href="#home">Estadisticas</a>
-    <a href="#CasasApuestas">Casas de Apuestas</a>
-    <a href="#Bonos">Bonos</a>
-    <a href="#Rankings">Rankings</a>
-    <a href="#Consejos">Consejos</a>
-    <a href="calculadoraSurebets.html">Calculadora Surebets</a>
-
+        <div id="contenedorLogo">
+            <img id="logo" src="imagenes/Dondeapuesto.png" >
+        </div>
+    </div>
 </div>
 
 <form action="Calculadora" method="post">
-<table>
+<table id="tablaCalculadora">
     <thead>
     <tr>
         <th></th>
@@ -45,36 +46,36 @@
 
     <tr>
         <td>Cuota 1</td>
-        <td><input type="text" name="cuota1" value="0"></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.porcentaje1}"/></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.importe1}"/></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.resultado}"/></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.beneficio}"/></td>
+        <td><input type="text" name="cuota1" value="${tabla.cuota1}"></td>
+        <td>${tabla.porcentaje1}</td>
+        <td>${tabla.importe1}</td>
+        <td>${tabla.resultado}</td>
+        <td>${tabla.beneficio}</td>
 
     </tr>
 
     <tr>
         <td>Cuota 2</td>
-        <td><input type="text" name="cuota2" value="0"></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.porcentaje2}"/></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.importe2}"/></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.resultado}"/></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.beneficio}"/></td>
+        <td><input type="text" name="cuota2" value="${tabla.cuota2}"></td>
+        <td>${tabla.porcentaje2}</td>
+        <td>${tabla.importe2}</td>
+        <td>${tabla.resultado}</td>
+        <td>${tabla.beneficio}</td>
 
     </tr>
 
     <tr>
         <td>Cuota 3</td>
-        <td><input type="text" name="cuota3" value="0"></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.porcentaje3}"/></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.importe3}"/></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.resultado}"/></td>
-        <td><input maxlength="11" size="24" type="text" name="seccion" value="${tabla.beneficio}"/></td>
+        <td><input type="text" name="cuota3" value="${tabla.cuota3}"></td>
+        <td>${tabla.porcentaje3}</td>
+        <td>${tabla.importe3}</td>
+        <td>${tabla.resultado}</td>
+        <td>${tabla.beneficio}</td>
     </tr>
 
     <tr>
         <td></td>
-        <td>Introduce importe a apostar</td>
+        <td>Importe a apostar:</td>
         <td><input type="text" name="cantidad" value="0"></td>
         <td><input type="submit" name="calcularsurebts" value="Calcular"></td>
         <td><input type="reset" name="Limpiar" value="Limpiar"></td>
@@ -89,11 +90,16 @@
 </table>
 
 </form>
-<p id="texto introduccion"> DondeApuesto es una pagina web en la que podrás comparar las cuotas de las principales casas de
-    apuestas deportivas de España. Si te registras con nosotros podras configurar las casas de apuestas, ademas podras
-    recibir notificaciones cuando una cuota suba o baje a la cuota que te interese. Tambien se mostrará un grafico con el historial de la cuota seleccionada. Tambien
-    Registrar usuarios, Autocompletar formularios,
+
+</div>
+
+<div class="textoIntroduccion">
+<p > La calculadora surebets nos permite introducir las cuotas y el
+    importe total para apostar. La calculadora nos mostrará los importes que hay que apostar a cada cuota y el resultado que obtendremos
+    si gana cualquiera de las opciones sobre las que hemos apostado. Ademas nos aparecera las probabilidades de la cuota y el beneficio
+    en % que obtendriamos apostando lo que nos muestra la tabla.
 </p>
+</div>
 
 <footer>
     <p>&copy; 2020.Adrian Fernandez Elizaga</p>

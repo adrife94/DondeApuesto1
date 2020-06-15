@@ -19,7 +19,7 @@ public class EstandarizadorNombresSportium {
                 equipomodificado = "Eibar";
                 break;
             case "CD Leganés":
-                equipomodificado = "Leganés";
+                equipomodificado = "Leganes";
                 break;
             case "D.Alavés":
                 equipomodificado = "Alaves";
@@ -44,6 +44,12 @@ public class EstandarizadorNombresSportium {
                 break;
             case "Getafe CF":
                 equipomodificado = "Getafe";
+                break;
+            case "Real Betis":
+                equipomodificado = "Betis";
+                break;
+            case "Leganés":
+                equipomodificado = "Leganes";
                 break;
         }
 
@@ -120,7 +126,7 @@ public class EstandarizadorNombresSportium {
         String equipomodificado = equipos;
 
         switch (equipos) {
-            case "SSC Napoli":
+            case "Nápoles":
                 equipomodificado = "Napoles";
                 break;
             case "Bologna":
@@ -135,6 +141,10 @@ public class EstandarizadorNombresSportium {
             case "Parma Calcio 1913":
                 equipomodificado = "Parma";
                 break;
+            case "Génova":
+                equipomodificado = "Genova";
+                break;
+
 
         }
 
@@ -150,7 +160,17 @@ public class EstandarizadorNombresSportium {
             case "Sheff Utd":
                 equipomodificado = "Sheffield";
                 break;
+            case "Sheffield United":
+                equipomodificado = "Sheffield";
+                break;
+            case "Manchester City":
+                equipomodificado = "Man City";
+                break;
+            case "Manchester United":
+                equipomodificado = "Man United";
+                break;
         }
+
 
         return equipomodificado;
     }

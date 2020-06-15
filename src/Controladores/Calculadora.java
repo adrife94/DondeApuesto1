@@ -50,20 +50,36 @@ public class Calculadora extends HttpServlet {
 
     private TablaCalculadoraSurebets calculaProbabilidad3Cuotas(double cuota1, double cuota2, double cuota3, double cantidad) {
 
-        double porcentaje1 = (1/cuota1);
-        double porcentaje2 = (1/cuota2);
-        double porcentaje3 = (1/cuota3);
+        double porcentaje1 = (1/cuota1) * 100;
+        String porcentaje1String = String.format("%.2f", porcentaje1).replace(",", ".");
+        double porcentaje1recortado = Double.parseDouble(porcentaje1String);
+        double porcentaje2 = (1/cuota2) * 100;
+        String porcentaje2String = String.format("%.2f", porcentaje2).replace(",", ".");
+        double porcentaje2recortado = Double.parseDouble(porcentaje2String);
+        double porcentaje3 = (1/cuota3) * 100;
+        String porcentaje3String = String.format("%.2f", porcentaje3).replace(",", ".");
+        double porcentaje3recortado = Double.parseDouble(porcentaje3String);
 
         double porcentajefinal = (porcentaje1 + porcentaje2 + porcentaje3) * 100;
 
-        double importe1 = (100 * porcentaje1) / porcentajefinal;
-        double importe2 = (100 * porcentaje2) / porcentajefinal;
-        double importe3 = (100 * porcentaje3) / porcentajefinal;
+        double importe1 = ((100 * porcentaje1) / porcentajefinal) * 100;
+        String importe1String = String.format("%.2f", importe1).replace(",", ".");
+        double importe1recortado = Double.parseDouble(importe1String);
+        double importe2 = ((100 * porcentaje2) / porcentajefinal) * 100;
+        String importe2String = String.format("%.2f", importe2).replace(",", ".");
+        double importe2recortado = Double.parseDouble(importe2String);
+        double importe3 = ((100 * porcentaje3) / porcentajefinal) * 100;
+        String importe3String = String.format("%.2f", importe3).replace(",", ".");
+        double importe3recortado = Double.parseDouble(importe3String);
 
         double resultado = (cantidad/porcentajefinal * 100) - cantidad;
+        String resultadoString = String.format("%.2f", resultado).replace(",", ".");
+        double resultadorecortado = Double.parseDouble(resultadoString);
 
-        double beneficio = (resultado/cantidad) * 100;
-        TablaCalculadoraSurebets tablaCalculadoraSurebets = new TablaCalculadoraSurebets(porcentaje1, porcentaje2, porcentaje3, importe1, importe2, importe3, resultado, beneficio, cantidad, cuota1, cuota2, cuota3);
+        double beneficio = ((resultado/cantidad) * 100) - 100;
+        String beneficioString = String.format("%.2f", beneficio).replace(",", ".");
+        double beneficiorecortado = Double.parseDouble(beneficioString);
+        TablaCalculadoraSurebets tablaCalculadoraSurebets = new TablaCalculadoraSurebets(porcentaje1recortado, porcentaje2recortado, porcentaje3recortado, importe1recortado, importe2recortado, importe3recortado, resultadorecortado, beneficiorecortado, cantidad, cuota1, cuota2, cuota3);
 
         return tablaCalculadoraSurebets;
     }

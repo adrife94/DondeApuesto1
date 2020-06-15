@@ -9,10 +9,13 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Sissal {
-    public static List<Cuotas> parseador(String casa, String liga, String url ) {
+    public static List<Cuotas> parseador(String casa, String liga, String url, Date date) {
+        PostgreSqlConexion postgreSqlConexion = new PostgreSqlConexion(casa);
+        EventoBaseDatos eventoBaseDatos = new EventoBaseDatos(postgreSqlConexion);
         List<Cuotas> lista = null;
         try {
 
@@ -74,7 +77,6 @@ public class Sissal {
             int c = 0;
             int d = 1;
             int e = 2;
-            int numeroidentificador = 1;
 
 
             if (listaPartidos.size() != 0) {
@@ -91,15 +93,21 @@ public class Sissal {
                     double porcentaje2 = (1 / cuota2double);
 
                     double porcentajefinal = (porcenatje1 + porcentajex + porcentaje2) * 100;
-                //    String porcentajefinaltexto = String.valueOf(porcentajefinal);
 
                     double resultado = (100 /porcentajefinal * 100) - 100;
 
                     double beneficio = (resultado/100) * 100;
 
-                    String porcentajefinalredondeado = String.format("%.2f", beneficio);
+                    String porcentajefinalredondeado = String.format("%.2f", beneficio).replace(",", ".");
+                    double porcentajefonalredondeadodouble = Double.parseDouble(porcentajefinalredondeado);
 
-                //    String numid = Integer.toString(numeroidentificador);
+                    eventoBaseDatos.crearTabla(listaPartidos.get(a).replace(" ", ""), listaPartidos.get(b).replace(" ", ""));
+
+                    Cuotas cuotas = new Cuotas(listaPartidos.get(a), listaPartidos.get(b), date, cuota1double, cuotaxdouble, cuota2double, porcentajefonalredondeadodouble, liga, "2019-2020" );
+
+                    eventoBaseDatos.InsertarCuotas(cuotas, listaPartidos.get(a), listaPartidos.get(b));
+
+
                     Cuotas cuota = new Cuotas(listaPartidos.get(a), listaPartidos.get(b), cuota1, cuotax, cuota2, porcentajefinalredondeado.replace(",", "."));
                     lista.add(cuota);
                     a += 2;

@@ -7,9 +7,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Sportium {
 
@@ -96,9 +94,15 @@ public class Sportium {
             int c = 0;
             int d = 1;
             int e = 2;
+          /*  Calendar calendar = new GregorianCalendar();
+            c = calendar.get(Calendar.HOUR);
+            Calendar calendario = new GregorianCalendar();*/
 
             if (listaPartidosSportiumLaLiga.size() != 0) {
                 for (int i = 0; i < (listaPartidosSportiumLaLiga.size() / 2); i++) {
+                 /*   if (calendar.get(Calendar.HOUR) == calendario.set(Calendar.HOUR, (Integer.parseInt(listaHorasSportiumLaLiga.get(i)))){
+
+                    }*/
 
                     String cuota1 = listaCuotasSportiumLaLiga.get(c);
                     String cuotax = listaCuotasSportiumLaLiga.get(d);

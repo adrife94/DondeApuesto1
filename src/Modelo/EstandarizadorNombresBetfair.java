@@ -9,7 +9,19 @@ public class EstandarizadorNombresBetfair {
             case "Athletic Club":
                 equipomodificado = "Athletic";
                 break;
+            case "Athletic de Bilbao":
+                equipomodificado = "Athletic";
+                break;
+            case "Mallorca":
+                equipomodificado = "Mallorca";
+                break;
+            case "Betis":
+                equipomodificado = "Betis";
+                break;
             case "RC Celta":
+                equipomodificado = "Celta";
+                break;
+            case "Celta de Vigo":
                 equipomodificado = "Celta";
                 break;
             case "Valencia CF":
@@ -24,7 +36,13 @@ public class EstandarizadorNombresBetfair {
             case "D.Alavés":
                 equipomodificado = "Alaves";
                 break;
+            case "Alavés":
+                equipomodificado = "Alaves";
+                break;
             case "Villarreal CF":
+                equipomodificado = "Villarreal";
+                break;
+            case "Villarreal":
                 equipomodificado = "Villarreal";
                 break;
             case "Levante UD":
@@ -33,7 +51,16 @@ public class EstandarizadorNombresBetfair {
             case "RCD Espanyol":
                 equipomodificado = "Espanyol";
                 break;
+            case "Espanyol":
+                equipomodificado = "Espanyol";
+                break;
+            case "Leganés":
+                equipomodificado = "Leganes";
+                break;
             case "Sevilla FC":
+                equipomodificado = "Sevilla";
+                break;
+            case "Sevilla":
                 equipomodificado = "Sevilla";
                 break;
             case "Real Valladolid":
@@ -42,8 +69,14 @@ public class EstandarizadorNombresBetfair {
             case "Atlético Madrid":
                 equipomodificado = "Atletico Madrid";
                 break;
+            case "Atlético de Madrid":
+                equipomodificado = "Atletico Madrid";
+                break;
             case "Getafe CF":
                 equipomodificado = "Getafe";
+                break;
+            case "FC Barcelona":
+                equipomodificado = "Barcelona";
                 break;
         }
 
@@ -120,7 +153,7 @@ public class EstandarizadorNombresBetfair {
         String equipomodificado = equipos;
 
         switch (equipos) {
-            case "SSC Napoli":
+            case "Nápoles":
                 equipomodificado = "Napoles";
                 break;
             case "Bologna":
@@ -132,8 +165,17 @@ public class EstandarizadorNombresBetfair {
             case "Genoa":
                 equipomodificado = "Genova";
                 break;
+            case "Génova":
+                equipomodificado = "Genova";
+                break;
             case "Parma Calcio 1913":
                 equipomodificado = "Parma";
+                break;
+            case "Inter de Milán":
+                equipomodificado = "Inter";
+                break;
+            case "AC Milán":
+                equipomodificado = "Milan";
                 break;
 
         }
@@ -147,9 +189,22 @@ public class EstandarizadorNombresBetfair {
 
 
         switch (equipos) {
-            case "Sheff Utd":
+            case "Sheffield":
                 equipomodificado = "Sheffield";
                 break;
+            case "Sheffield United":
+                equipomodificado = "Sheffield";
+                break;
+            case "Newcastle":
+                equipomodificado = "Newcastle";
+                break;
+            case "Manchester City":
+                equipomodificado = "Man City";
+                break;
+            case "Manchester United":
+                equipomodificado = "Man United";
+                break;
+
         }
 
         return equipomodificado;

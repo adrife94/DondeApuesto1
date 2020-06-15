@@ -7,10 +7,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Suertia {
-    public static List<Cuotas> parseadorSuertia(String casa, String liga, String url ) {
+    public static List<Cuotas> parseadorSuertia(String casa, String liga, String url, Date date ) {
+        PostgreSqlConexion postgreSqlConexion = new PostgreSqlConexion(casa);
+        EventoBaseDatos eventoBaseDatos = new EventoBaseDatos(postgreSqlConexion);
         List<Cuotas> lista = null;
 
         try {
@@ -92,7 +95,6 @@ public class Suertia {
             int c = 0;
             int d = 1;
             int e = 2;
-            int numeroidentificador = 1;
 
 
                 if(listaPartidosSuertia.size()!= 0) {
@@ -111,15 +113,21 @@ public class Suertia {
                         double porcentaje2 = (1/cuota2double);
 
                         double porcentajefinal = (porcenatje1 + porcentajex + porcentaje2) * 100;
-                    //    String porcentajefinaltexto = String.valueOf(porcentajefinal);
+
 
                         double resultado = (100 /porcentajefinal * 100) - 100;
 
                         double beneficio = (resultado/100) * 100;
 
-                        String porcentajefinalredondeado = String.format("%.2f", beneficio);
+                        String porcentajefinalredondeado = String.format("%.2f", beneficio).replace(",", ".");
+                        double porcentajefonalredondeadodouble = Double.parseDouble(porcentajefinalredondeado);
 
-                    //    String numid = Integer.toString(numeroidentificador);
+                        eventoBaseDatos.crearTabla(listaPartidosSuertia.get(a).replace(" ", ""), listaPartidosSuertia.get(b).replace(" ", ""));
+
+                        Cuotas cuotass = new Cuotas(listaPartidosSuertia.get(a), listaPartidosSuertia.get(b), date, cuota1double, cuotaxdouble, cuota2double, porcentajefonalredondeadodouble, liga, "2019-2020" );
+
+                        eventoBaseDatos.InsertarCuotas(cuotass, listaPartidosSuertia.get(a), listaPartidosSuertia.get(b));
+
                         Cuotas cuota = new Cuotas(listaPartidosSuertia.get(a), listaPartidosSuertia.get(b), cuota1, cuotax, cuota2, porcentajefinalredondeado.replace(",", "."));
                         lista.add(cuota);
                         a+=2;

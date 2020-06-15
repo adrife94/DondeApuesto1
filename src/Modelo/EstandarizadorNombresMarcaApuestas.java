@@ -18,10 +18,13 @@ public class EstandarizadorNombresMarcaApuestas {
             case "SD Eibar":
                 equipomodificado = "Eibar";
                 break;
-            case "CD Leganés":
-                equipomodificado = "Leganés";
+            case "Leganés":
+                equipomodificado = "Leganes";
                 break;
-            case "D.Alavés":
+            case "CD Leganés":
+                equipomodificado = "Leganes";
+                break;
+            case "CD Alaves":
                 equipomodificado = "Alaves";
                 break;
             case "Villarreal CF":
@@ -39,11 +42,17 @@ public class EstandarizadorNombresMarcaApuestas {
             case "Real Valladolid":
                 equipomodificado = "Valladolid";
                 break;
-            case "Atlético Madrid":
+            case "Atletico de Madrid":
                 equipomodificado = "Atletico Madrid";
                 break;
             case "Getafe CF":
                 equipomodificado = "Getafe";
+                break;
+            case "Real Betis":
+                equipomodificado = "Betis";
+                break;
+            case "RCD Mallorca":
+                equipomodificado = "Mallorca";
                 break;
         }
 
@@ -123,13 +132,22 @@ public class EstandarizadorNombresMarcaApuestas {
             case "SSC Napoli":
                 equipomodificado = "Napoles";
                 break;
+            case "Napoli":
+                equipomodificado = "Napoles";
+                break;
             case "Bologna":
                 equipomodificado = "Bolonia";
                 break;
             case "AC Milan":
                 equipomodificado = "Milan";
                 break;
+            case "AC Milán":
+                equipomodificado = "Milan";
+                break;
             case "Genoa":
+                equipomodificado = "Genova";
+                break;
+            case "Génova":
                 equipomodificado = "Genova";
                 break;
             case "Parma Calcio 1913":
@@ -147,8 +165,59 @@ public class EstandarizadorNombresMarcaApuestas {
 
 
         switch (equipos) {
-            case "Sheff Utd":
+            case "Sheffield United":
                 equipomodificado = "Sheffield";
+                break;
+            case "Manchester City":
+                equipomodificado = "Man City";
+                break;
+            case "Manchester United":
+                equipomodificado = "Man United";
+                break;
+            case "FC Arsenal":
+                equipomodificado = "Arsenal";
+                break;
+            case "Norwich City":
+                equipomodificado = "Norwich";
+                break;
+            case "Southampton FC":
+                equipomodificado = "Southampton";
+                break;
+            case "Tottenham Hotspur":
+                equipomodificado = "Tottenham";
+                break;
+            case "Watford FC":
+                equipomodificado = "Watford";
+                break;
+            case "Leicester City":
+                equipomodificado = "Leicester";
+                break;
+            case "Brighton & Hove Albion":
+                equipomodificado = "Brighton";
+                break;
+            case "West Ham United":
+                equipomodificado = "West Ham";
+                break;
+            case "Wolverhampton Wanderers":
+                equipomodificado = "Wolves";
+                break;
+            case "AFC Bournemouth":
+                equipomodificado = "Bournemouth";
+                break;
+            case "Newcastle United":
+                equipomodificado = "Newcastle";
+                break;
+            case "Chelsea FC":
+                equipomodificado = "Chelsea";
+                break;
+            case "FC Everton":
+                equipomodificado = "Everton";
+                break;
+            case "FC Liverpool":
+                equipomodificado = "Liverpool";
+                break;
+            case "Burnley FC":
+                equipomodificado = "Burnley";
                 break;
         }
 

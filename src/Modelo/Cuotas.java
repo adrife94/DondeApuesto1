@@ -64,6 +64,15 @@ public class Cuotas {
 
     }
 
+    public Cuotas(double cuota1F, double cuotaXF, double cuota2F) {
+
+        this.cuota1F = cuota1F;
+        this.cuotaXF = cuotaXF;
+        this.cuota2F = cuota2F;
+
+
+    }
+
 
 
     public double getPorcentajePagoF() {

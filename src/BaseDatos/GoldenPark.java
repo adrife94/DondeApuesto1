@@ -7,10 +7,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class GoldenPark {
-    public static List<Cuotas> parseadorGolden(String casa, String liga, String url ){
+    public static List<Cuotas> parseadorGolden(String casa, String liga, String url, Date date ){
+        PostgreSqlConexion postgreSqlConexion = new PostgreSqlConexion(casa);
+        EventoBaseDatos eventoBaseDatos = new EventoBaseDatos(postgreSqlConexion);
         List<Cuotas> lista = null;
              try {
 
@@ -108,7 +111,6 @@ public class GoldenPark {
             int c = 0;
             int d = 1;
             int e = 2;
-            int numeroidentificador = 1;
 
 
             if(listaEquiposGolden.size()!= 0) {
@@ -127,17 +129,24 @@ public class GoldenPark {
                         double porcentaje2 = (1/cuota2double);
 
                         double porcentajefinal = (porcenatje1 + porcentajex + porcentaje2) * 100;
-                       // String porcentajefinaltexto = String.valueOf(porcentajefinal);
+
 
                     double resultado = (100 /porcentajefinal * 100) - 100;
 
                     double beneficio = (resultado/100) * 100;
 
-                    String porcentajefinalredondeado = String.format("%.2f", beneficio);
+                    String porcentajefinalredondeado = String.format("%.2f", beneficio).replace(",", ".");
+                    double porcentajefonalredondeadodouble = Double.parseDouble(porcentajefinalredondeado);
+
+                    eventoBaseDatos.crearTabla(listaEquiposGolden.get(a).replace(" ", ""), listaEquiposGolden.get(b).replace(" ", ""));
+
+                    Cuotas cuotas = new Cuotas(listaEquiposGolden.get(a), listaEquiposGolden.get(b), date, cuota1double, cuotaxdouble, cuota2double, porcentajefonalredondeadodouble, liga, "2019-2020" );
+
+                    eventoBaseDatos.InsertarCuotas(cuotas, listaEquiposGolden.get(a), listaEquiposGolden.get(b));
 
 
-                    //    String numid = Integer.toString(numeroidentificador);
-                        Cuotas cuota = new Cuotas(listaEquiposGolden.get(a), listaEquiposGolden.get(b), listaCuotaGolden.get(c), listaCuotaGolden.get(d), listaCuotaGolden.get(e), porcentajefinalredondeado.replace(",", "."));
+
+                    Cuotas cuota = new Cuotas(listaEquiposGolden.get(a), listaEquiposGolden.get(b), listaCuotaGolden.get(c), listaCuotaGolden.get(d), listaCuotaGolden.get(e), porcentajefinalredondeado.replace(",", "."));
                         lista.add(cuota);
                         a+=2;
                         b+=2;

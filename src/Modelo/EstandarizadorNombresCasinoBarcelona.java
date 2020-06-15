@@ -12,16 +12,22 @@ public class EstandarizadorNombresCasinoBarcelona {
             case "RC Celta":
                 equipomodificado = "Celta";
                 break;
+            case "Celta de Vigo":
+                equipomodificado = "Celta";
+                break;
             case "Valencia CF":
                 equipomodificado = "Valencia";
                 break;
             case "SD Eibar":
                 equipomodificado = "Eibar";
                 break;
-            case "CD Leganés":
-                equipomodificado = "Leganés";
+            case "Leganés":
+                equipomodificado = "Leganes";
                 break;
             case "D.Alavés":
+                equipomodificado = "Alaves";
+                break;
+            case "Alavés":
                 equipomodificado = "Alaves";
                 break;
             case "Villarreal CF":
@@ -42,8 +48,14 @@ public class EstandarizadorNombresCasinoBarcelona {
             case "Atlético Madrid":
                 equipomodificado = "Atletico Madrid";
                 break;
+            case "Atlético de Madrid":
+                equipomodificado = "Atletico Madrid";
+                break;
             case "Getafe CF":
                 equipomodificado = "Getafe";
+                break;
+            case "Real Betis":
+                equipomodificado = "Betis";
                 break;
         }
 
@@ -126,10 +138,13 @@ public class EstandarizadorNombresCasinoBarcelona {
             case "SSC Napoli":
                 equipomodificado = "Napoles";
                 break;
+            case "Nápoles":
+                equipomodificado = "Napoles";
+                break;
             case "Bologna":
                 equipomodificado = "Bolonia";
                 break;
-            case "AC Milan":
+            case "AC Milán":
                 equipomodificado = "Milan";
                 break;
             case "Genoa":
@@ -137,6 +152,15 @@ public class EstandarizadorNombresCasinoBarcelona {
                 break;
             case "Parma Calcio 1913":
                 equipomodificado = "Parma";
+                break;
+            case "Parma FC":
+                equipomodificado = "Parma";
+                break;
+            case "Hellas Verona":
+                equipomodificado = "Verona";
+                break;
+            case "Inter de Milán":
+                equipomodificado = "Inter";
                 break;
 
         }
@@ -150,8 +174,59 @@ public class EstandarizadorNombresCasinoBarcelona {
 
 
         switch (equipos) {
-            case "Sheff Utd":
+            case "Sheffield United":
                 equipomodificado = "Sheffield";
+                break;
+            case "Manchester City":
+                equipomodificado = "Man City";
+                break;
+            case "Manchester United":
+                equipomodificado = "Man United";
+                break;
+            case "FC Arsenal":
+                equipomodificado = "Arsenal";
+                break;
+            case "Norwich City":
+                equipomodificado = "Norwich";
+                break;
+            case "Southampton FC":
+                equipomodificado = "Southampton";
+                break;
+            case "Tottenham Hotspur":
+                equipomodificado = "Tottenham";
+                break;
+            case "Watford FC":
+                equipomodificado = "Watford";
+                break;
+            case "Leicester City":
+                equipomodificado = "Leicester";
+                break;
+            case "Brighton & Hove Albion":
+                equipomodificado = "Brighton";
+                break;
+            case "West Ham United":
+                equipomodificado = "West Ham";
+                break;
+            case "Wolverhampton Wanderers":
+                equipomodificado = "Wolves";
+                break;
+            case "AFC Bournemouth":
+                equipomodificado = "Bournemouth";
+                break;
+            case "Newcastle United":
+                equipomodificado = "Newcastle";
+                break;
+            case "Chelsea FC":
+                equipomodificado = "Chelsea";
+                break;
+            case "FC Everton":
+                equipomodificado = "Everton";
+                break;
+            case "FC Liverpool":
+                equipomodificado = "Liverpool";
+                break;
+            case "Burnley FC":
+                equipomodificado = "Burnley";
                 break;
         }
 

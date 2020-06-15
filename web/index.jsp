@@ -1,5 +1,7 @@
 <%@ page import="Modelo.Cuotas" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="BaseDatos.EventoBaseDatos" %>
+<%@ page import="BaseDatos.PostgreSqlConexion" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -10,6 +12,28 @@
           src="https://code.jquery.com/jquery-3.5.1.js"
           integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
           crossorigin="anonymous">
+
+  </script>
+
+  <script>
+
+    $(document).ready(function () {
+
+      document.getElementById("cuota1Sportium").addEventListener("click", mostrar_grafica, false);
+      function mostrar_grafica() {
+        var equipo1 =  $("#equipo1Sportium").value;
+        var equipo2 =  $("#equipo2Sportium").value;
+        $("#banner").removeClass("grafica_escondida");
+        $("#banner").addClass("grafica");
+
+        /*$("#banner").append(equipo1 + equipo2);*/
+        alert(equipo1);
+
+      }
+
+    });
+
+
 
   </script>
 
@@ -27,6 +51,8 @@
     ArrayList<Cuotas> cuotasCasinoBarcelona = (ArrayList<Cuotas>) request.getAttribute("ListaCuotasCasinoBarcelona");
     ArrayList<Cuotas> cuotasCasinoMadrid = (ArrayList<Cuotas>) request.getAttribute("ListaCuotasCasinoMadrid");
     ArrayList<Cuotas> cuotasGoldenPark = (ArrayList<Cuotas>) request.getAttribute("ListaCuotasGoldenPark");
+    ArrayList<Cuotas> cuotasMejor = (ArrayList<Cuotas>) request.getAttribute("ListaMejor");
+    String raya = "-";
 
   %>
   <%--   <script>
@@ -46,19 +72,16 @@
 <body>
 <div id="contenedorBarraSuperior">
 
-
-
-
-
   <div class="topnav">
-    <a href="#Login">Login</a>
-    <a href="registro.html">Registrar</a>
-    <a class="active" href="#home">Estadisticas</a>
+   <%-- <a href="#Login">Login</a>
+    <a href="registro.html">Registrar</a>--%>
+    <a href="#home">Estadisticas</a>
     <a href="#CasasApuestas">Casas de Apuestas</a>
     <a href="#Bonos">Bonos</a>
-    <a href="#Rankings">Rankings</a>
-    <a href="#Consejos">Consejos</a>
+    <a href="Rankings.html">Rankings</a>
+    <%--<a href="#Consejos">Consejos</a>--%>
     <a href="Calculadora.jsp">Calculadora Surebets</a>
+    <a class="active" href="#Comparador">Comparador</a>
 
     <div id="contenedorLogo">
       <img id="logo" src="imagenes/Dondeapuesto.png" >
@@ -85,22 +108,54 @@
   </ul>
 </nav>--%>
 
+<div id="banner" class="grafica_escondida">
+  <h3>Equipo1 - Equipo2</h3>
 
-<table class="botonesCasas">
+    <div id="cuadro_grafica">
+      hola
+   <%--   <%
+        ArrayList<Double> cuota1 = new ArrayList<>();
+        ArrayList<Double> cuotaX = new ArrayList<>();
+        ArrayList<Double> cuota2 = new ArrayList<>();
+        ArrayList<Double> cuotaPorcentajePago = new ArrayList<>();
+        for (Double d : cuota1) {
+          out.print(d);
+        }
+      %>--%>
 
-  <td><input type="submit" value="LALIGA" id="laliga" name="envio"/>
-  <td><input type="submit" value="PREMIER" id="premier" name="envio"/>
-  <td><input type="submit" value="BUNDESLIGA" id="bundesliga" name="envio"/>
-  <td><input type="submit" value="CALCIO" id="calcio" name="envio"/>
-  <td><input type="submit" value="LIGUE1" id="ligue1" name="envio"/>
-  <td><input type="submit" value="EREDIVISE" id="eredivise" name="envio"/>
-  <td><input type="submit" value="PORTUGAL" id="portugal" name="envio"/>
-  <td><input type="submit" value="CHAMPIONS" id="champions" name="envio"/>
-  <td><input type="submit" value="EUROPA" id="europa" name="envio"/>
+
+    </div>
+</div>
+
+
+
+<table class="tablabotonesligas">
+
+  <thead>
+
+  <tr>
+
+  <form action="Main" method="get">
+
+  <th><input type="submit" value="LALIGA" id="laliga" name="envio" class="botonesLigas"/>
+  <th><input type="submit" value="PREMIER" id="premier" name="envio" class="botonesLigas"/>
+  <th><input type="submit" value="BUNDESLIGA" id="bundesliga" name="envio" class="botonesLigas"/>
+  <th><input type="submit" value="CALCIO" id="calcio" name="envio" class="botonesLigas"/>
+ <%-- <th><input type="submit" value="LIGUE1" id="ligue1" name="envio" class="botonesLigas"/>
+  <th><input type="submit" value="EREDIVISE" id="eredivise" name="envio" class="botonesLigas"/>--%>
+  <th><input type="submit" value="PORTUGAL" id="portugal" name="envio" class="botonesLigas"/>
+ <%-- <th><input type="submit" value="CHAMPIONS" id="champions" name="envio" class="botonesLigas"/>
+  <th><input type="submit" value="EUROPA" id="europa" name="envio" class="botonesLigas"/>--%>
+  </form>
+  </tr>
+  </thead>
+
 </table>
 
 
 <div id="contenedorTablacentral">
+
+    <div id="cc">
 
 
     <div id="PrimeraColumna">
@@ -113,7 +168,7 @@
     <%
       if(i==0) {
     %>
-    <thead>
+    <thead class="encabezadoTabla">
     <tr>
 
       <th>-</th>
@@ -152,8 +207,8 @@
           }
         }
       %>
-    </div>
 
+    </div>
 
    <div id="SegundaColumnaEquipos">
      <%
@@ -165,7 +220,7 @@
       <%
         if(i==0) {
       %>
-      <thead>
+      <thead class="encabezadoTabla">
       <tr>
 
         <th>Equipos</th>
@@ -177,7 +232,7 @@
       %>
       <tbody>
       <tr>
-        <td>
+        <td id="equipo1Sportium">
           <%=cuotasSportium.get(i).getNombreEquipo1()%>
         </td>
       </tr>
@@ -187,7 +242,7 @@
         </td>
       </tr>
       <tr>
-        <td>
+        <td id="equipo2Sportium">
           <%=cuotasSportium.get(i).getNombreEquipo2()%>
         </td>
       </tr>
@@ -216,7 +271,7 @@
       <%
         if(i==0) {
       %>
-      <thead>
+      <thead  class="encabezadoTabla">
       <tr>
 
         <th>Fecha</th>
@@ -260,6 +315,9 @@
 
     <div id="CuartaColumnaCuotas">
       <%
+        PostgreSqlConexion postgreSqlConexionSportium = new PostgreSqlConexion("sportium");
+        EventoBaseDatos eventoBaseDatos = new EventoBaseDatos(postgreSqlConexionSportium);
+
         if(cuotasSportium!= null) {
           for (int i = 0; i <= cuotasSportium.size()-1; i++) {
 
@@ -268,7 +326,7 @@
     <%
       if(i==0) {
     %>
-    <thead>
+    <thead class="encabezadoTabla">
     <tr>
 
       <th>Sportium</th>
@@ -280,9 +338,12 @@
     %>
     <tbody>
     <tr>
-      <td>
+      <form action="Grafica" method="get">
+      <td id="cuota1Sportium" >
+        <input type="hidden" name="instruccion" value="">
         <%=cuotasSportium.get(i).getCuota1()%>
       </td>
+      </form>
     </tr>
     <tr>
       <td>
@@ -313,14 +374,14 @@
 <div id="CuotasBetfair">
   <%
     if(cuotasBetfair!= null) {
-      for (int i = 0; i <= cuotasSportium.size()-1; i++) {
+      for (int i = 0; i <= cuotasBetfair.size()-1; i++) {
 
   %>
   <table id="tablaCuotaBetfair" class="tablaCuotasBetfair">
     <%
       if(i==0) {
     %>
-    <thead>
+    <thead  class="encabezadoTabla">
     <tr>
       <th>Betfair</th>
     </tr>
@@ -362,7 +423,7 @@
 <div id="CuotasJuegging">
   <%
     if(cuotasJuegging!= null) {
-      for (int i = 0; i <= cuotasSportium.size()-1; i++) {
+      for (int i = 0; i <= cuotasJuegging.size()-1; i++) {
 
   %>
 
@@ -370,7 +431,7 @@
       <%
         if(i==0) {
       %>
-      <thead>
+      <thead class="encabezadoTabla">
       <tr>
         <th>Juegging</th>
       </tr>
@@ -420,7 +481,7 @@
       <%
         if(i==0) {
       %>
-      <thead>
+      <thead class="encabezadoTabla">
       <tr>
         <th>Interwetten</th>
       </tr>
@@ -473,7 +534,7 @@
       <%
         if(i==0) {
       %>
-      <thead>
+      <thead  class="encabezadoTabla">
       <tr>
         <th>Mbet</th>
       </tr>
@@ -525,9 +586,9 @@
       <%
         if(i==0) {
       %>
-      <thead>
+      <thead  class="encabezadoTabla">
       <tr>
-        <th>MarcaApuestas</th>
+        <th>Marca</th>
       </tr>
       </thead>
       <%
@@ -577,7 +638,7 @@
       <%
         if(i==0) {
       %>
-      <thead>
+      <thead  class="encabezadoTabla">
       <tr>
         <th>Kirolbet</th>
       </tr>
@@ -630,7 +691,7 @@
       <%
         if(i==0) {
       %>
-      <thead>
+      <thead class="encabezadoTabla">
       <tr>
         <th>Retabet</th>
       </tr>
@@ -683,7 +744,7 @@
       <%
         if(i==0) {
       %>
-      <thead>
+      <thead class="encabezadoTabla">
       <tr>
         <th>Suertia</th>
       </tr>
@@ -735,7 +796,7 @@
             <%
                 if(i==0) {
             %>
-            <thead>
+            <thead class="encabezadoTabla">
             <tr>
                 <th>Sissal</th>
             </tr>
@@ -787,9 +848,9 @@
             <%
                 if(i==0) {
             %>
-            <thead>
+            <thead class="encabezadoTabla">
             <tr>
-                <th>CasinoBarcelona</th>
+                <th>Barcelona</th>
             </tr>
             </thead>
             <%
@@ -839,9 +900,9 @@
             <%
                 if(i==0) {
             %>
-            <thead>
+            <thead class="encabezadoTabla">
             <tr>
-                <th>CasinoMadrid</th>
+                <th>Madrid</th>
             </tr>
             </thead>
             <%
@@ -883,7 +944,7 @@
 
     <%
       if(cuotasGoldenPark!= null) {
-        for (int i = 0; i <= cuotasGoldenPark.size()-1; i++) {
+        for (int i = 0; i <= cuotasSportium.size()-1; i++) {
 
     %>
 
@@ -891,7 +952,7 @@
       <%
         if(i==0) {
       %>
-      <thead>
+      <thead class="encabezadoTabla">
       <tr>
         <th>GoldenPark</th>
       </tr>
@@ -902,22 +963,52 @@
       <tbody>
       <tr>
         <td>
-          <%=cuotasGoldenPark.get(i).getCuota1()%>
+          <%
+            try {
+              cuotasGoldenPark.get(i).getCuota1();
+            } catch (Exception e) {%>
+              -
+          <%
+            }
+            %>
+
         </td>
       </tr>
       <tr>
         <td>
-          <%=cuotasGoldenPark.get(i).getCuotaX()%>
+          <%
+            try {
+              cuotasGoldenPark.get(i).getCuotaX();
+            } catch (Exception e) {%>
+          -
+          <%
+            }
+          %>
         </td>
       </tr>
       <tr>
         <td>
-          <%=cuotasGoldenPark.get(i).getCuota2()%>
+          <%
+            try {
+              cuotasGoldenPark.get(i).getCuota2();
+            } catch (Exception e) {%>
+          -
+          <%
+            }
+          %>
         </td>
       </tr>
       <tr>
         <td>
-          <%=cuotasGoldenPark.get(i).getPorcentajePago()%>
+
+          <%
+            try {
+              cuotasGoldenPark.get(i).getPorcentajePago();
+            } catch (Exception e) {%>
+          -
+          <%
+            }
+          %>
         </td>
       </tr>
 
@@ -930,9 +1021,62 @@
     %>
   </div>
 
+    <div id="MejoresCuotas">
+
+
+        <%
+            if(cuotasMejor!= null) {
+                for (int i = 0; i <= cuotasMejor.size()-1; i++) {
+
+        %>
+
+        <table class="tablaCuotasMejores">
+            <%
+                if(i==0) {
+            %>
+            <thead class="encabezadoTabla">
+            <tr>
+                <th>Mejores</th>
+            </tr>
+            </thead>
+            <%
+                }
+            %>
+            <tbody>
+            <tr>
+                <td>
+                    <%=cuotasMejor.get(i).getCuota1F()%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%=cuotasMejor.get(i).getCuotaXF()%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%=cuotasMejor.get(i).getCuota2F()%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%=cuotasMejor.get(i).getPorcentajePagoF()%>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <%
+                }
+            }
+        %>
+    </div>
+    </div>
 
 </div>
-<p id="texto introduccion"> DondeApuesto es una pagina web en la que podrás comparar las cuotas de las principales casas de
+
+<%--<p id="texto introduccion"> DondeApuesto es una pagina web en la que podrás comparar las cuotas de las principales casas de
   apuestas deportivas de España. Si te registras con nosotros podras configurar las casas de apuestas, ademas podras
   recibir notificaciones cuando una cuota suba o baje a la cuota que te interese. Tambien se mostrará un grafico con el historial de la cuota seleccionada. Tambien
   Registrar usuarios, Autocompletar formularios,
@@ -940,7 +1084,7 @@
 
 <footer>
   <p>&copy; 2020.Adrian Fernandez Elizaga</p>
-</footer>
+</footer>--%>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/7.14.4/firebase-app.js"></script>
 
